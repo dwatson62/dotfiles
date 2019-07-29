@@ -48,3 +48,31 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+export BUNDLER_EDITOR='sublime'
+export NODE_ENV=development
+export NVM_DIR="$HOME/.nvm"
+export PATH=/usr/local/bin:$PATH
+export PERCY_TOKEN=
+export PGUSER=
+
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+alias path="echo $PATH | tr -s ':' '\n'"
+alias profile='subl ~/.bash_profile'
+alias r='bin/rspec'
+alias subl='sublime'
+
+mcd ()
+{
+mkdir -p $1
+cd $1
+}
+
+rubo ()
+{
+ rubocop -D -E -S -R `git diff --name-only --pretty=oneline $(git merge-base -a staging HEAD) | grep "\.rb$" | sed '/^db/ d'`
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
