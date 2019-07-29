@@ -53,3 +53,8 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+alias path="echo $PATH | tr -s ':' '\n'"
+alias profile='subl ~/.bash_profile'
+alias r='bin/rspec'
+alias subl='sublime'
